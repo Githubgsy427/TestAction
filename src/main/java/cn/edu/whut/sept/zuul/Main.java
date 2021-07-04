@@ -1,4 +1,4 @@
-package cn.edu.whut.sept.zuul;
+package src.main.java.cn.edu.whut.sept.zuul;
 
 public class Main {
 

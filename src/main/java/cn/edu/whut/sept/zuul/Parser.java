@@ -1,6 +1,6 @@
-package cn.edu.whut.sept.zuul;
+package src.main.java.cn.edu.whut.sept.zuul;
 
-import java.util.Scanner;
+    import java.util.Scanner;
 
 public class Parser
 {
