@@ -3,7 +3,7 @@ package TestAction.src.main.java.cn.edu.whut.sept.zuul;
 public abstract class Command
 {
     private String secondWord;
-    private String first;
+    private int secondWord;
 
     public Command()
     {
