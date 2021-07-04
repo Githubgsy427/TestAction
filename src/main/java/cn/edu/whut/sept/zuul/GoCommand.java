@@ -1,4 +1,4 @@
-package src.main.java.cn.edu.whut.sept.zuul;
+package TestAction.src.main.java.cn.edu.whut.sept.zuul;
 
 public class GoCommand extends Command
 {
