@@ -9,6 +9,7 @@ public abstract class Command
     private String ooooo;
     private String pppp;
     private String mmm;
+    private String bbb;
 
 
     public Command()
