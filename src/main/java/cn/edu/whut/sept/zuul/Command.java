@@ -9,6 +9,7 @@ public abstract class Command
     private String neirong;
     private String gsy;
     private String hgn;
+    private String zb;
 
 
     public Command()
