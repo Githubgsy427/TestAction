@@ -1,28 +1,53 @@
-name: build-docker-image
+name: Go Release
 
-on: release
+on:
+  release:
+    types: [published]
 
 jobs:
-  build-docker-image:
-    name: Build and upload docker image
-    runs-on: ubuntu-latest
+
+  release:
+    if: github.repository == 'Githubgsy427/TestAction'
+    name: Build with go ${{ matrix.go_version }} on ${{ matrix.os }} and upload
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        go_version: [1.13]
+        os: [ubuntu-latest]
+
     steps:
-      - name: Pull source
+
+      - name: Set up Go ${{ matrix.go_version }}
+        uses: actions/setup-go@v1
+        with:
+          go-version: ${{ matrix.go_version }}
+        id: go
+
+      - name: Check out code into the Go module directory
         uses: actions/checkout@v1
 
-      - name: Build Docker image
-        uses: actions/TestAction@master
-        with:
-          args: build . -t my-image
+      - name: Get dependencies
+        run: |
+          go get -v -t -d ./...
+          if [ -f Gopkg.toml ]; then
+              curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+              dep ensure
+          fi
 
-      - name: Save the image
-        uses: actions/TestAction@master
-        with:
-          args: save my-image:latest
+      - name: Build
+        run: |
+          go build -v -o main .
+
+      - name: Gzip
+        run: |
+          mkdir hello-word-${{ matrix.os }}
+          cp main hello-word-${{ matrix.os }}
+          tar -czvf hello-word-${{ matrix.os }}.tar.gz hello-word-${{ matrix.os }}
 
       - name: Upload to release
         uses: JasonEtco/upload-to-release@master
         with:
-          args: my-image.tar
+          args: hello-word-${{ matrix.os }}.tar.gz application/octet-stream
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
