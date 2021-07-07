@@ -37,7 +37,7 @@ jobs:
 
       - name: Build
         run: |
-          go build -v -o master .
+          go build -v -o main .
 
       - name: Gzip
         run: |
