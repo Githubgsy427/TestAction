@@ -11,6 +11,7 @@ public abstract class Command
     private String mmm;
     private String bbb;
     private String vvv;
+    private String asdasd;
 
 
     public Command()
