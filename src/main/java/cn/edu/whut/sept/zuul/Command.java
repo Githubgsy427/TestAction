@@ -6,10 +6,7 @@ package TestAction.src.main.java.cn.edu.whut.sept.zuul;
 public abstract class Command
 {
     private String secondWord;
-    private String neirong;
-    private String gsy;
-    private String hgn;
-    private String zb;
+
 
 
     public Command()
