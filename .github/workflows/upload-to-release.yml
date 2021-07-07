@@ -11,12 +11,12 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Build Docker image
-        uses: actions/Githubgsy427/TestAction@master
+        uses: actions/TestAction@master
         with:
           args: build . -t my-image
 
       - name: Save the image
-        uses: actions/Githubgsy427/TestAction@master
+        uses: actions/TestAction@master
         with:
           args: save my-image:latest
 
