@@ -16,7 +16,7 @@ jobs:
           args: build . -t my-image
 
       - name: Save the image
-        uses: actions/docker/cli@master
+        uses: actions/Githubgsy427/TestAction@master
         with:
           args: save my-image:latest
 
