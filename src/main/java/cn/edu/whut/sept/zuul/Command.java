@@ -7,7 +7,7 @@ public abstract class Command
 {
     private String secondWord;
     private String neirong;
-    private String asd;
+    private String gsy;
 
 
     public Command()
