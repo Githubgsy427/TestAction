@@ -10,6 +10,7 @@ public abstract class Command
     private String pppp;
     private String mmm;
     private String bbb;
+    private String vvv;
 
 
     public Command()
